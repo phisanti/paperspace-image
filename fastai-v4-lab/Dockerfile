@@ -29,7 +29,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-la
     /opt/conda/bin/conda install conda-build
 
 ENV PATH=$PATH:/opt/conda/bin/
-ENV USER fastai
+ENV USER scm
 # Create Environment
 COPY environment.yaml /environment.yaml
 RUN conda env create -f environment.yaml
@@ -41,9 +41,6 @@ CMD source ~/.bashrc
 
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
-
-# Clone course-v4
-RUN git clone https://github.com/fastai/course-v4.git
 
 COPY config.yml /root/.fastai/config.yml
 COPY run.sh /run.sh
