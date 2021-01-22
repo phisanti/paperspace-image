@@ -1,12 +1,10 @@
-# Paperspace + Fast.ai Docker files
+# Paperspace files for the image
 
 *JupyterLab version*
 
 ## Overview
 
-This is a docker build file designed to work with [Paperspace]. The latest pre-built runtimes are pushed here: https://hub.docker.com/r/paperspace/fastai/
-
-This container pulls the latest fast.ai class. You can find this repo here: https://github.com/fastai/fastai and you can learn more about the Fast.ai course here: http://course.fast.ai/
+Designed to install conda, CUDA and related packages.
 
 ## Requirements:
 
