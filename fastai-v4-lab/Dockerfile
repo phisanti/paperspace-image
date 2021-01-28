@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.2-base-ubuntu16.04
+FROM tensorflow/tensorflow:nightly-gpu-jupyter
 # See http://bugs.python.org/issue19846
 ENV LANG C.UTF-8
 LABEL com.nvidia.volumes.needed="nvidia_driver"
@@ -31,18 +31,11 @@ RUN curl -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-la
 ENV PATH=$PATH:/opt/conda/bin/
 ENV USER scm
 # Create Environment
-COPY environment.yaml /environment.yaml
-RUN conda env create -f environment.yaml
 
 WORKDIR /notebooks
 # Activate Source
-CMD source activate fastai
 CMD source ~/.bashrc
 
-RUN chmod -R a+w /notebooks
-WORKDIR /notebooks
-
-COPY config.yml /root/.fastai/config.yml
 COPY run.sh /run.sh
 
 CMD ["/run.sh"]
