@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:nightly-gpu-jupyter
+FROM nvidia/cuda:11.1.1-base-ubuntu20.04
 # See http://bugs.python.org/issue19846
 ENV LANG C.UTF-8
 LABEL com.nvidia.volumes.needed="nvidia_driver"
@@ -36,6 +36,7 @@ WORKDIR /notebooks
 # Activate Source
 CMD source ~/.bashrc
 
+COPY config.yml /root/.scm/config.yml
 COPY run.sh /run.sh
 
 CMD ["/run.sh"]
