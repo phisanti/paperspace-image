@@ -1,5 +1,4 @@
 #!/bin/bash
-source activate fastai
 mkdir /storage/data
 rm -rf /storage/lost+found
 ln -s /datasets/fastai/* /storage/data/
