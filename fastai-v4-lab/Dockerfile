@@ -30,8 +30,9 @@ RUN curl -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-la
 
 ENV PATH=$PATH:/opt/conda/bin/
 ENV USER scm
-# Create Environment
 
+# Create Environment
+RUN conda install jupyterlab
 WORKDIR /notebooks
 # Activate Source
 CMD source ~/.bashrc
