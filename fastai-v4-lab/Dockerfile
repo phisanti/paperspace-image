@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.2-base-ubuntu16.04
+FROM nvidia/cuda:10.0-base-ubuntu18.04
 # See http://bugs.python.org/issue19846
 ENV LANG C.UTF-8
 LABEL com.nvidia.volumes.needed="nvidia_driver"
@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          cmake \
          git \
          curl \
+         sudo \
          vim \
          ca-certificates \
          python-qt4 \
@@ -32,7 +33,7 @@ ENV PATH=$PATH:/opt/conda/bin/
 ENV USER scm
 
 # Create Environment
-RUN conda install jupyterlab
+RUN conda install jupyterlab ipywidgets
 WORKDIR /notebooks
 # Activate Source
 CMD source ~/.bashrc
